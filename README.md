@@ -6,15 +6,15 @@
 ### 📁 conky:
 * .conkyrc
 ---
-### 📁 neovim
+### 📁 neovim:
 * iniy.vim
 ---
-### 📁 rofi
+### 📁 rofi:
 * config.rasi
 ---
-### 📁 sqlite3
+### 📁 sqlite3:
 * .sqliterc
 ---
-### 📁 vim
+### 📁 vim:
 * _vimrc
 
