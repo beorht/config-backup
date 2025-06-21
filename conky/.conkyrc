@@ -3,7 +3,7 @@
 conky.config = {
     alignment = 'top_right',
     background = true,
-    border_width = 15,
+    border_width = 10,
     cpu_avg_samples = 2,
     default_color = 'white',
     default_outline_color = 'white',
@@ -14,9 +14,9 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     extra_newline = false,
-    font = 'DejaVu Sans Mono:size=12',
-    gap_x = 30,
-    gap_y = 55,
+    font = 'Monospace:size=11',
+    gap_x = 25,
+    gap_y = 45,
     minimum_height = 100,
     minimum_width = 100,
     net_avg_samples = 2,
@@ -42,24 +42,32 @@ conky.config = {
     use_spacer = 'none',
     use_xft = true,
 }
+-- ${alignc}${font Monospace:bold:size=25} ${color lightblue} ${time %H:%M} ${color} ${font} 
+-- ${alignc}${font Monospace:bold:size=10}${color lightblue} ${time %a, %d %b %Y} ${color} ${font}
+-- $hr
 
 -- Variables: https://conky.cc/variables
 conky.text = [[
-${alignc}${font Monospace:bold:size=43} ${color lightblue}${time %H:%M}${color} ${font} 
-${alignc}${font Monospace:bold:size=14}${color lightblue}${time %a, %d %b %Y}${color} ${font}
+${alignc} ${font Monospace:bold:size=20}${color lightblue} Hot Keys ${color}${font} 
 $hr
-${font DejaVu Sans Mono:bold:size=14}${color lightblue}App key:${color}${font}
+${font DejaVu Sans Mono:bold:size=12}${color lightblue}App key:${color}${font}
 DMenu                   Mod + D
 Rofi                    Mod + Shift + D
 Terminal                Mod + Enter
 Nautilus                Mod + Shift + N
 Quit App                Mod + Shift + Q
 $hr
-${font DejaVu Sans Mono:bold:size=14}${color lightblue}Connection Hot key:${color}${font}
+${font DejaVu Sans Mono:bold:size=12}${color lightblue}Tilix Terminal:${color}${font}
+New session             Ctrl + Shift + T
+Session list            F12
+New Column              Ctrl + Shift + R
+New Row                 Ctrl + Shift + D
+$hr
+${font DejaVu Sans Mono:bold:size=12}${color lightblue}Connection Hot key:${color}${font}
 Wifi Connect            Mod + Shift + W
 Bluetooth               Mod + Shift + B
 $hr
-${font DejaVu Sans Mono:bold:size=14}${color lightblue}Windows Hot key:${color}${font}
+${font DejaVu Sans Mono:bold:size=12}${color lightblue}Windows Hot key:${color}${font}
 Riseze Mod              Mod + R
 
 Focus Left              Mod + Left
@@ -72,6 +80,9 @@ Move Rigt               Mod + Shift + Right
 Move Bottom             Mod + Shift + Bottom
 Move Top                Mod + Shift + Top
 
+Open new Win. Hor.      Mod + H
+Open new Win. Ver.      Mod + V
+
 Layout Stacking         Mod + S 
 Layout Tabbed           Mod + W 
 Layout Toggle split     Mod + E 
@@ -81,8 +92,7 @@ Switch WorkSpaces       Mod + N WorkSpace
 Move to WorkSpace       Mod + Shift + N WorkSpace
 Toggle Window           Mod + Shift + Space
 $hr
-${font DejaVu Sans Mono:bold:size=14}${color lightblue}System Hot key:${color}${font}
-Restart Session i3      Mod + Shift + C
+${font DejaVu Sans Mono:bold:size=12}${color lightblue}System Hot key:${color}${font}
 Restart i3              Mod + Shift + R
 Exit i3                 Mod + Shift + E
 ]]
