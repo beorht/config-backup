@@ -29,7 +29,11 @@ exec --no-startup-id dex --autostart --environment i3
 
 
 # Srtart conky with system
-exec --no-startup-id conky
+exec_always --no-startup-id conky
+
+# Start picom composite menedjer
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -149,12 +153,10 @@ bindsym $mod+Shift+b exec blueman-manager
 # gap window size
 #for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] border normal
-gaps inner 8
-gaps outer 2
+gaps inner 5
+gaps outer 1
 
 #window border settings
-
-
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -194,19 +196,17 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Color                   border    background   text     indicator  child_border
-client.focused            #e6e6e6   #e6e6e6     #000000   #9548e8    #e6e6e6
+client.focused            #e6e6e6   #e6e6e6     #000000   #98b8eb    #e6e6e6
 client.focused_inactive   #333333   #5d5961     #ffffff   #484e50    #5f676a
 client.unfocused          #333333   #302f30     #888888   #292d2e    #222222
 client.urgent             #2f343a   #91db30     #000000   #91db30    #91db30
 client.placeholder        #000000   #0c0c0c     #ffffff   #000000    #0c0c0c
 
-
 #client.focused            #936eba   #936eba     #ffffff   #9548e8    #9548e8
 #client.focused_inactive   #333333   #5d5961     #ffffff   #484e50    #5f676a
 #client.unfocused          #333333   #302f30     #888888   #292d2e    #222222
-#client.urgent             #2f343a   #900000     #ffffff   #900000    #900000
+#client.urgent             #57de26   #57de26     #000000   #57de26    #57de26
 #client.placeholder        #000000   #0c0c0c     #ffffff   #000000    #0c0c0c
-
 
 # show workspace
 #set $Lmon eDP-1
