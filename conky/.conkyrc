@@ -1,99 +1,114 @@
--- Configuration settings: https://conky.cc/config_settings
+set mouse=a  " enable mouse
+set encoding=utf-8
+set number
+set cursorline
+set noswapfile
+set scrolloff=7
+set termguicolors
 
-conky.config = {
-    alignment = 'top_right',
-    background = true,
-    border_width = 10,
-    cpu_avg_samples = 2,
-    default_color = 'white',
-    default_outline_color = 'white',
-    default_shade_color = 'white',
-    double_buffer = true,
-    draw_borders = false,
-    draw_graph_borders = true,
-    draw_outline = false,
-    draw_shades = false,
-    extra_newline = false,
-    font = 'Monospace:size=11',
-    gap_x = 25,
-    gap_y = 45,
-    minimum_height = 100,
-    minimum_width = 100,
-    net_avg_samples = 2,
-    no_buffers = true,
-    out_to_console = false,
-    out_to_ncurses = false,
-    out_to_stderr = false,
-    out_to_wayland = true,
-    out_to_x = true,
-    own_window = true,
-    own_window_class = 'Conky',
-    own_window_transparent = false,
-    own_window_argb_value = 250,
-    own_window_argb_visual = true,
-    own_window_colour = '#363235',
-    own_window_type = 'override',
-    own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
-    show_graph_range = false,
-    show_graph_scale = false,
-    stippled_borders = 0,
-    update_interval = 1.0,
-    uppercase = true,
-    use_spacer = 'none',
-    use_xft = true,
-}
--- ${alignc}${font Monospace:bold:size=25} ${color lightblue} ${time %H:%M} ${color} ${font} 
--- ${alignc}${font Monospace:bold:size=10}${color lightblue} ${time %a, %d %b %Y} ${color} ${font}
--- $hr
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set fileformat=unix
+filetype indent on      " load filetype-specific indent files
 
--- Variables: https://conky.cc/variables
-conky.text = [[
-${alignc} ${font Monospace:bold:size=20}${color lightblue} Hot Keys ${color}${font} 
-$hr
-${font DejaVu Sans Mono:bold:size=12}${color lightblue}App key:${color}${font}
-DMenu                   Mod + D
-Rofi                    Mod + Shift + D
-Terminal                Mod + Enter
-Nautilus                Mod + Shift + N
-Quit App                Mod + Shift + Q
-$hr
-${font DejaVu Sans Mono:bold:size=12}${color lightblue}Tilix Terminal:${color}${font}
-New session             Ctrl + Shift + T
-Session list            F12
-New Column              Ctrl + Shift + R
-New Row                 Ctrl + Shift + D
-$hr
-${font DejaVu Sans Mono:bold:size=12}${color lightblue}Connection Hot key:${color}${font}
-Wifi Connect            Mod + Shift + W
-Bluetooth               Mod + Shift + B
-$hr
-${font DejaVu Sans Mono:bold:size=12}${color lightblue}Windows Hot key:${color}${font}
-Riseze Mod              Mod + R
+" for tabulation
+set smartindent
+set tabstop=2
+set expandtab
+set shiftwidth=2
 
-Focus Left              Mod + Left
-Focus Right             Mod + Right
-Focus Bottom            Mod + Bottom
-Focus Top               Mod + Top
+" horizontal split open below and right
+set splitbelow
+set splitright
 
-Move Left               Mod + Shift + Left
-Move Rigt               Mod + Shift + Right
-Move Bottom             Mod + Shift + Bottom
-Move Top                Mod + Shift + Top
+inoremap jk <esc>
 
-Open new Win. Hor.      Mod + H
-Open new Win. Ver.      Mod + V
+call plug#begin('~/.vim/plugged')
 
-Layout Stacking         Mod + S 
-Layout Tabbed           Mod + W 
-Layout Toggle split     Mod + E 
-Full Scrinn Window      Mod + F
+" Plug 'ebelot/kanagawa-dragon.nvim'
+Plug 'tomasr/molokai'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
 
-Switch WorkSpaces       Mod + N WorkSpace
-Move to WorkSpace       Mod + Shift + N WorkSpace
-Toggle Window           Mod + Shift + Space
-$hr
-${font DejaVu Sans Mono:bold:size=12}${color lightblue}System Hot key:${color}${font}
-Restart i3              Mod + Shift + R
-Exit i3                 Mod + Shift + E
-]]
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
+" color schemas
+"Plug 'ellisonleao/gruvbox'  " colorscheme gruvbox
+Plug 'f4z3r/gruvbox-material.nvim'
+Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'ayu-theme/ayu-vim'
+Plug 'navarasu/onedark.nvim'
+
+Plug 'xiyaowong/nvim-transparent'
+
+Plug 'Pocco81/auto-save.nvim'
+Plug 'justinmk/vim-sneak'
+
+" JS/JSX/TS
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
+" TS from here https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript-development-5789d58ea9c
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'nvim-lua/plenary.nvim'
+
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'typescriptreact', 'javascriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+Plug 'bmatcuk/stylelint-lsp'
+
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+" Convenient floating terminal window
+"Plug 'voldikss/vim-floaterm'
+
+Plug 'ray-x/lsp_signature.nvim'
+
+"Plug 'lspcontainers/lspcon'
+
+call plug#end()
+
+let g:onedark_config = {
+    \ 'style': 'warmer',
+\}
+colorscheme onedark
+let g:airline_theme = 'onedark' 
+
+"colorscheme molokai
+"colorscheme kanagawa-wave
+"colorscheme gruvbox
+"colorscheme OceanicNext
+"let g:material_terminal_italics = 1
+"variants: default, palenight, ocean, lighter, darker, default-community,
+"           palenight-community, ocean-community, lighter-community,
+"           darker-community
+"let g:material_theme_style = 'darker'
+"colorscheme material
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+" Airline Properties
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
