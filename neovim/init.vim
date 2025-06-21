@@ -4,6 +4,9 @@ set number
 set cursorline
 set noswapfile
 set scrolloff=7
+set termguicolors
+set t_Co=256
+
 
 set tabstop=4
 set softtabstop=4
@@ -27,11 +30,19 @@ inoremap jk <esc>
 
 call plug#begin('~/.vim/plugged')
 
+" Plug 'ebelot/kanagawa-dragon.nvim'
+Plug 'tomasr/molokai'
+Plug 'rebelot/kanagawa.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 
 " color schemas
 "Plug 'ellisonleao/gruvbox'  " colorscheme gruvbox
@@ -39,6 +50,7 @@ Plug 'f4z3r/gruvbox-material.nvim'
 Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim'
+Plug 'navarasu/onedark.nvim'
 
 Plug 'xiyaowong/nvim-transparent'
 
@@ -73,7 +85,13 @@ Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()
 
-colorscheme gruvbox-material
+let g:onedark_config = {
+    \ 'style': 'warmer',
+\}
+colorscheme onedark
+
+"colorscheme molokai
+"colorscheme kanagawa-wave
 "colorscheme gruvbox
 "colorscheme OceanicNext
 "let g:material_terminal_italics = 1
@@ -85,3 +103,38 @@ colorscheme gruvbox-material
 if (has('termguicolors'))
   set termguicolors
 endif
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+
+function! AirlineInit()
+
+  " powerline symbols
+  let g:airline_theme = 'onedark' 
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = '☰'
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.dirty='⚡'
+
+  " Airline Properties
+  let g:airline_powerline_fonts = 1
+  let g:airline_enable_fugitive=1
+  let g:airline_enable_syntastic=1
+  let g:airline_enable_bufferline=1
+  let g:airline_linecolumn_prefix = '¶'
+  let g:airline_fugitive_prefix = '⎇ '
+  let g:airline_paste_symbol = 'ρ'
+
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
+endfunction
+autocmd VimEnter * call AirlineInit()
