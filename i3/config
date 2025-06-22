@@ -76,12 +76,23 @@ bindsym $mod+Return exec tilix
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -p "run >>> " -nb "#EBCB8B" -nf "#2E3440" -sb "#2E3440" -sf "#EBCB8B" -fn "Ubuntu-12" "$@"
+
+# start dmenu for system exit and close
+#bindsym Mod1+F4 exec --no-startup-id echo -e "poweroff\nreboot" | dmenu_run -p "Power Options>>>" -l 3 -nb "#EBCB8B" -nf "#2E3440" -sb "#2E3440" -sf "#EBCB8B"
+#bindsym Mod1+F4 exec --no-startup-id sh -c 'case "$(echo -e "poweroff\nreboot\nsuspend" | dmenu -p "Power Options>>>" -l 2 -nb "#EBCB8B" -nf "#2E3440" -sb "#2E3440" -sf "#EBCB8B")" in poweroff) systemctl poweroff ;; reboot) systemctl reboot ;; suspend) systemctl suspend ;; esac'
+#bindsym Mod1+F4 exec --no-startup-id sh -c "choice=\$(echo -e 'poweroff\nreboot\nsuspend' | dmenu -p 'Power Options >>>' -l 3 -nb '#EBCB8B' -nf '#2E3440' -sb '#2E3440' -sf '#EBCB8B'); [ -z \"\$choice\" ] && exit; confirm=\$(echo -e 'No\nYes' | dmenu -p \"Are you sure you want to \$choice?\" -nb '#BF616A' -nf '#ECEFF4' -sb '#2E3440' -sf '#A3BE8C'); [ \"\$confirm\" = 'Yes' ] && systemctl \$choice"
+
+bindsym Mod1+F4 exec --no-startup-id power_options.sh
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# lock monitor 
+#bindsym $mod+shift+x exec --no-startup-id i3lock
 
 # change focus
 bindsym $mod+j focus left
@@ -156,8 +167,8 @@ bindsym $mod+Shift+b exec blueman-manager
 # gap window size
 #for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] border normal
-gaps inner 5
-gaps outer 1
+gaps inner 7
+gaps outer 4
 
 #window border settings
 
@@ -282,7 +293,7 @@ bar {
         separator_symbol ":::"
 
         	
-	font pango:  Monospace 11
+	font pango:  Monospace 10
     
     	colors {
         	background #363235
