@@ -1,0 +1,1 @@
+sh -c "choice=\$(echo -e 'poweroff\nreboot\nsuspend' | dmenu -p 'Power Options >>>' -l 3 -nb '#EBCB8B' -nf '#2E3440' -sb '#2E3440' -sf '#EBCB8B'); [ -z \"\$choice\" ] && exit; confirm=\$(echo -e 'No\nYes' | dmenu -p \"Are you sure you want to \$choice?\" -nb '#BF616A' -nf '#ECEFF4' -sb '#2E3440' -sf '#A3BE8C'); [ \"\$confirm\" = 'Yes' ] && systemctl \$choice"
