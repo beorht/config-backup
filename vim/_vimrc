@@ -25,8 +25,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lambdalisue/battery.vim'
 Plug 'sainnhe/sonokai'
+Plug 'phanviet/vim-monokai-pro'
+""Plug 'OmniSharp/omnisharp-vim'
 ""Plug 'morhetz/gruvbox'
-""Plug 'phanviet/vim-monokai-pro'
 
 call plug#end()
 
@@ -35,13 +36,56 @@ set t_Co=256
 let g:gruvbox_italic=1
 set background=dark
 set termguicolors
-colorscheme Atelier_HeathLight
-
+colorscheme wasabi256
+""colorscheme scheme simplon
+""colorscheme surby
+""colorscheme turtles
+""colorscheme tigrana-256-dark
+""colorscheme bensday
+""colorscheme Atelier_ForestLight
+""colorscheme Atelier_HeathLight
 ""colorscheme sonokai
 ""colorscheme anotherdark
-""colorscheme chalkboard
-""colorscheme bensday
+""colorscheme gruvbox
 ""colorscheme monokai_pro
+
+
+""------------------------------------------------
+"" For Markdown .md
+""------------------------------------------------
+""colorscheme sierra
+""colorscheme seoul-256-light
+""colorscheme seattle
+""colorscheme seagull
+""colorscheme perfect
+""colorscheme PaperColor
+""colorscheme oxeded
+""colorscheme montz
+""colorscheme monokai_pro
+
+
+"" Setting to MarkDown
+augroup markdown_settings
+    "Удаление всех параметров по данной группой "
+    autocmd!
+    
+    "Установление цвета темы
+    autocmd FileType markdown colorscheme oxeded
+    
+augroup END
+
+""-----------------------------------------------
+"" C# - OmniSharp
+""-----------------------------------------------
+""augroup c_sharp_settings
+""    autocmd!
+""    autocmd FileType cs filetype indent plugin on
+""    autocmd FileType cs syntax enable
+""   autocmd FileType cs let g:OmniSharp_server_use_mono = 1
+""    autocmd FileType cs let g:OmniSharp_server_stdio = 1
+""    autocmd FileType cs let 
+""augroup END
+
 
 "" dein.vim
 "" call dein#add('lambdalisue/battery.vim')
@@ -49,10 +93,14 @@ colorscheme Atelier_HeathLight
 ""-----------------------------------------------
 "" Emmet
 ""-----------------------------------------------
+"let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+let g:user_emmet_mode='a'    "enable all function in all mode.
+
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
-let g:user_emmet_leader_key='<C-Z>'
+"let g:user_emmet_leader_key='<C-Z>'
 
 ""----------------------------------------------
 "" Ariline
