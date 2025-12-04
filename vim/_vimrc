@@ -26,7 +26,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'lambdalisue/battery.vim'
 Plug 'sainnhe/sonokai'
 Plug 'phanviet/vim-monokai-pro'
-Plug 'preservim/nerdtree
+Plug 'preservim/nerdtree'
+Plug 'jiangmiao/auto-pairs'
 ""Plug 'OmniSharp/omnisharp-vim'
 ""Plug 'morhetz/gruvbox'
 
@@ -50,6 +51,8 @@ colorscheme wasabi256
 ""colorscheme gruvbox
 ""colorscheme monokai_pro
 
+" Настройки Auto Pairs
+let g:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '"':'"', '`':'`', '<':'>'}
 
 ""------------------------------------------------
 "" For Markdown .md
@@ -113,6 +116,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'murmur'
+""let g:airline_theme = 'wombat'
 "" let g:airline_theme = 'minimalist'
 "" let g:airline_theme = 'dark'
 
@@ -128,5 +132,3 @@ set laststatus=2
 "" set foldminlines=4
 "" set foldnestmax=4
 "" let g:markdown_folding=1
-
-
