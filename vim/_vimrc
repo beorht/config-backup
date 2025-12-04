@@ -26,6 +26,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'lambdalisue/battery.vim'
 Plug 'sainnhe/sonokai'
 Plug 'phanviet/vim-monokai-pro'
+Plug 'preservim/nerdtree
 ""Plug 'OmniSharp/omnisharp-vim'
 ""Plug 'morhetz/gruvbox'
 
@@ -127,4 +128,5 @@ set laststatus=2
 "" set foldminlines=4
 "" set foldnestmax=4
 "" let g:markdown_folding=1
+
 
