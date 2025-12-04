@@ -1,4 +1,4 @@
-## Config for i3 
+## Config files
 ### 📁 i3:
 * config
 * i3status
