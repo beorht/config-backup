@@ -17,4 +17,7 @@
 ---
 ### 📁 vim:
 * _vimrc
-
+---
+### 📁 qutebrowser
+* config.py
+---
