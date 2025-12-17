@@ -1,5 +1,6 @@
 .headers on
 .mode column
 .nullvalue 
-.prompt "\n sqlite3 >>> "
+.prompt "\n [sqlite3] -> "
+
 
