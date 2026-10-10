@@ -59,8 +59,12 @@ set termguicolors
 ""colorscheme badwolf
 ""colorscheme base16-railscasts
 ""colorscheme antares
-colorscheme blackbeauty
-""colorschem BlackSea
+""colorscheme blackbeauty
+""colorscheme BlackSea
+""colorscheme luna
+""colorscheme maui 
+""colorscheme nazca
+colorscheme lanox
 
 " Настройки Auto Pairs
 
